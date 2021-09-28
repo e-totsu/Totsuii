@@ -1,19 +1,38 @@
 <template>
-  <v-container>
-    <canvas id="desk"/>
-  </v-container>
+  <div>
+    <canvas id="pixi"></canvas>
+  </div>
 </template>
+<script>
+import * as PIXI from 'pixi.js'
 
-<script lang="ts">
-  import Vue from 'vue'
+export default {
+  data: () => ({
 
-  export default Vue.extend({
-    data() {
-      return {
-        kot: 23
-      }
+  }),
+  methods: {
+    drawPixi() {
+      const canvas = document.getElementById('pixi')
+
+      const app = new PIXI.Application({
+        width: 400,
+        height: 400,
+        antialias: true,
+        transparent: true,
+        view: canvas,
+      })
+
+      let graphics = new PIXI.Graphics()
+      graphics.beginFill(0xFF5733);
+      graphics.drawRect(10, 20, 200, 100);
+
+      app.stage.addChild(graphics)
     },
-    methods: {
-    }
-  })
+  },
+
+  mounted() {
+    this.drawPixi()
+  },
+}
+
 </script>
