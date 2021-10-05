@@ -6,6 +6,7 @@
 
 <script lang="ts">
   import Vue from 'vue'
+  require('./../libs/totsuii/Main.ts')
 
   export default Vue.extend({
     data() {
