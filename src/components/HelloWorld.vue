@@ -3,8 +3,10 @@
     <canvas id="pixi"></canvas>
   </div>
 </template>
+
 <script>
 import * as PIXI from 'pixi.js'
+require('./../libs/totsuii/Main.ts')
 
 export default {
   data: () => ({
