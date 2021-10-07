@@ -5,13 +5,19 @@ class Vector2 {
 
   constructor()
   constructor(target: Vector2)
+  constructor(target: { x: number, y: number })
   constructor(x: number, y: number)
 
   constructor(...args: any[]) {
     switch(args.length) {
       case 1:
-        this._x = args[0].getX()
-        this._y = args[0].getY()
+        if ( args[0].x != null ) {
+          this._x = args[0].x
+          this._y = args[0].y
+        } else {
+          this._x = args[0].x()
+          this._y = args[0].y()
+        }
       break
       case 2:
         this._x = args[0]
@@ -60,7 +66,7 @@ class Vector2 {
           this._x = ceil(args[0].x)
         } else
         if (typeof args[0] != 'number') {
-          this._x = ceil(args[0].getX())
+          this._x = ceil(args[0].x())
         } else {
           this._x = ceil(args[0])
         }
@@ -83,7 +89,7 @@ class Vector2 {
           this._y = ceil(args[0].y)
         } else
         if (typeof args[0] != 'number') {
-          this._y = ceil(args[0].getY())
+          this._y = ceil(args[0].y())
         } else {
           this._y = ceil(args[0])
         }
@@ -95,13 +101,13 @@ class Vector2 {
   ///   Gets   ///
   get(): { x: number, y: number } {
     return {
-      x: this.getX(),
-      y: this.getY()
+      x: this.x(),
+      y: this.y()
     }
   }
 
-  getX(): number { return this._x }
-  getY(): number { return this._y }
+  x(): number { return this._x }
+  y(): number { return this._y }
 
 
   ///   Invert   ///
@@ -115,13 +121,13 @@ class Vector2 {
   invX(): number {
     this.setX(-this._x)
 
-    return this.getX()
+    return this.x()
   }
 
   invY(): number {
     this.setY(-this._y)
 
-    return this.getY()
+    return this.y()
   }
   
   
@@ -146,12 +152,12 @@ class Vector2 {
 
   mulX(...args: any[]) {
     if (args[0].x != null) {
-      this.setX(this.getX() * args[0].x)
+      this.setX(this.x() * args[0].x)
     } else
     if (typeof args[0] != 'number') {
-      this.setX(this.getX() * args[0].getX())
+      this.setX(this.x() * args[0].x())
     } else {
-      this.setX(this.getX() * args[0])
+      this.setX(this.x() * args[0])
     }
   }
 
@@ -161,12 +167,12 @@ class Vector2 {
 
   mulY(...args: any[]) {
     if (args[0].y != null) {
-      this.setY(this.getY() * args[0].y)
+      this.setY(this.y() * args[0].y)
     } else
     if (typeof args[0] != 'number') {
-      this.setY(this.getY() * args[0].getY())
+      this.setY(this.y() * args[0].y())
     } else {
-      this.setY(this.getY() * args[0])
+      this.setY(this.y() * args[0])
     }
   }
   
@@ -192,12 +198,12 @@ class Vector2 {
 
   devX(...args: any[]) {
     if (args[0].x != null) {
-      this.setX(this.getX() / args[0].x)
+      this.setX(this.x() / args[0].x)
     } else
     if (typeof args[0] != 'number') {
-      this.setX(this.getX() / args[0].getX())
+      this.setX(this.x() / args[0].x())
     } else {
-      this.setX(this.getX() / args[0])
+      this.setX(this.x() / args[0])
     }
   }
 
@@ -207,12 +213,12 @@ class Vector2 {
 
   devY(...args: any[]) {
     if (args[0].y != null) {
-      this.setY(this.getY() / args[0].y)
+      this.setY(this.y() / args[0].y)
     } else
     if (typeof args[0] != 'number') {
-      this.setY(this.getY() / args[0].getY())
+      this.setY(this.y() / args[0].y())
     } else {
-      this.setY(this.getY() / args[0])
+      this.setY(this.y() / args[0])
     }
   }
 
@@ -258,12 +264,12 @@ class Vector2 {
 
   equalX(...args: any[]): Boolean {
     if (args[0].x != null) {
-      return this.getX() === args[0].x
+      return this.x() === args[0].x
     } else
     if (typeof args[0] != 'number') {
-      return this.getX() === args[0].getX()
+      return this.x() === args[0].x()
     } else {
-      return this.getX() === args[0]
+      return this.x() === args[0]
     }
   }
 
@@ -273,12 +279,12 @@ class Vector2 {
 
   equalY(...args: any[]): Boolean {
     if (args[0].x != null) {
-      return this.getY() === args[0].y
+      return this.y() === args[0].y
     } else
     if (typeof args[0] != 'number') {
-      return this.getY() === args[0].getY()
+      return this.y() === args[0].y()
     } else {
-      return this.getY() === args[0]
+      return this.y() === args[0]
     }
   }
 
@@ -308,12 +314,12 @@ class Vector2 {
 
   disX(...args: any[]): number {
     if (args[0].x != null) {
-      return Math.abs(this.getX()) - Math.abs(args[0].x)
+      return Math.abs(this.x()) - Math.abs(args[0].x)
     } else
     if (typeof args[0] != 'number') {
-      return Math.abs(this.getX()) - Math.abs(args[0].getX())
+      return Math.abs(this.x()) - Math.abs(args[0].x())
     } else {
-      return Math.abs(this.getX()) - Math.abs(args[0])
+      return Math.abs(this.x()) - Math.abs(args[0])
     }
   }
 
@@ -323,19 +329,19 @@ class Vector2 {
 
   disY(...args: any[]): number {
     if (args[0].x != null) {
-      return Math.abs(this.getY()) + Math.abs(args[0].y)
+      return Math.abs(this.y()) + Math.abs(args[0].y)
     } else
     if (typeof args[0] != 'number') {
-      return Math.abs(this.getY()) + Math.abs(args[0].getY())
+      return Math.abs(this.y()) + Math.abs(args[0].y())
     } else {
-      return Math.abs(this.getY()) + Math.abs(args[0])
+      return Math.abs(this.y()) + Math.abs(args[0])
     }
   }
 
 
   ///   Length   ///
   len(): number {
-    return Math.abs(Math.abs(this.getX()) + Math.abs(this.getY()))
+    return Math.abs(Math.abs(this.x()) + Math.abs(this.y()))
   }
 
 
@@ -363,7 +369,7 @@ class Vector2 {
       this.setX(this._x += args[0].x)
     } else
     if (typeof args[0] != 'number') {
-      this.setX(this._x += args[0].getX())
+      this.setX(this._x += args[0].x())
     } else {
       this.setX(this._x += args[0])
     }
@@ -378,7 +384,7 @@ class Vector2 {
       this.setY(this._y += args[0].y)
     } else
     if (typeof args[0] != 'number') {
-      this.setY(this._y += args[0].getY())
+      this.setY(this._y += args[0].y())
     } else {
       this.setY(this._y += args[0])
     }
@@ -394,7 +400,7 @@ class Vector2 {
 
 
 ///   Ceil   ///
-function ceil(target: number): number {
+const ceil = (target: number): number => {
   return Math.ceil(target * 1000) /1000
 }
 

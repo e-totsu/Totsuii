@@ -25,7 +25,7 @@ export default {
       })
 
       let graphics = new PIXI.Graphics()
-      graphics.beginFill(0xFF5733);
+      graphics.beginFill(0x000000, .1);
       graphics.drawRect(10, 20, 200, 100);
 
       app.stage.addChild(graphics)
