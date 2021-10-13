@@ -1,35 +1,40 @@
-///   Vector2   ///
-class Vector2 {
+///   uii_Vector2   ///
+class uii_Vector2 {
   private _x: number = 0
   private _y: number = 0
 
   constructor()
-  constructor(target: Vector2)
+  constructor(target: uii_Vector2)
   constructor(target: { x: number, y: number })
   constructor(x: number, y: number)
 
   constructor(...args: any[]) {
-    switch(args.length) {
-      case 1:
-        if ( args[0].x != null ) {
-          this._x = args[0].x
-          this._y = args[0].y
-        } else {
-          this._x = args[0].x()
-          this._y = args[0].y()
-        }
-      break
-      case 2:
-        this._x = args[0]
-        this._y = args[1]
-      break
-    }
+    console.log(args)
+    // switch(args.length) {
+    //   case 1:
+    //     if ( args[0].x != null ) {
+    //       this._x = args[0].x
+    //       this._y = args[0].y
+    //     } else {
+    //       this._x = args[0].x()
+    //       this._y = args[0].y()
+    //     }
+    //   break
+    //   case 2:
+    //     this._x = args[0]
+    //     this._y = args[1]
+    //   break
+    // }
   }
 
-  
+  // To String
+  toString(): string {
+    return `X: ${this.x()}, Y: ${this.y()}`
+  }
+
   ///   Sets   ///
   set(): void
-  set(target: Vector2): void
+  set(target: uii_Vector2): void
   set(target: number): void
   set(target: { x: number, y: number }): void
   set(x: number, y: number): void
@@ -52,7 +57,7 @@ class Vector2 {
   }
 
   setX(): void
-  setX(target: Vector2): void
+  setX(target: uii_Vector2): void
   setX(target: { x: number, y: number }): void
   setX(x: number): void
 
@@ -75,7 +80,7 @@ class Vector2 {
   }
 
   setY(): void
-  setY(target: Vector2): void
+  setY(target: uii_Vector2): void
   setY(target: { x: number, y: number }): void
   setY(y: number): void
 
@@ -129,10 +134,10 @@ class Vector2 {
 
     return this.y()
   }
-  
-  
+
+
   ///   Multiplies   ///
-  mul(target: Vector2): void
+  mul(target: uii_Vector2): void
   mul(target: number): void
   mul(num: { x: number, y: number }): void
 
@@ -146,7 +151,7 @@ class Vector2 {
     }
   }
 
-  mulX(target: Vector2): void
+  mulX(target: uii_Vector2): void
   mulX(target: number): void
   mulX(num: { x: number, y: number }): void
 
@@ -161,7 +166,7 @@ class Vector2 {
     }
   }
 
-  mulY(target: Vector2): void
+  mulY(target: uii_Vector2): void
   mulY(target: number): void
   mulY(num: { x: number, y: number }): void
 
@@ -175,10 +180,10 @@ class Vector2 {
       this.setY(this.y() * args[0])
     }
   }
-  
-  
+
+
   ///   Divides   ///
-  dev(target: Vector2): void
+  dev(target: uii_Vector2): void
   dev(target: number): void
   dev(num: { x: number, y: number }): void
 
@@ -192,7 +197,7 @@ class Vector2 {
     }
   }
 
-  devX(target: Vector2): void
+  devX(target: uii_Vector2): void
   devX(target: number): void
   devX(num: { x: number, y: number }): void
 
@@ -207,7 +212,7 @@ class Vector2 {
     }
   }
 
-  devY(target: Vector2): void
+  devY(target: uii_Vector2): void
   devY(target: number): void
   devY(num: { x: number, y: number }): void
 
@@ -225,7 +230,7 @@ class Vector2 {
 
   ///   Reverse   ///
   rev(): { x: number, y: number }
-  rev(target: Vector2): { x: number, y: number }
+  rev(target: uii_Vector2): { x: number, y: number }
   rev(num: { x: number, y: number }): { x: number, y: number }
 
   rev(...args: any[]): { x: number, y: number } {
@@ -246,7 +251,7 @@ class Vector2 {
 
 
   ///   Equals   ///
-  equal(target: Vector2): Boolean
+  equal(target: uii_Vector2): Boolean
   equal(target: number): Boolean
   equal(num: { x: number, y: number }): Boolean
 
@@ -258,7 +263,7 @@ class Vector2 {
     }
   }
 
-  equalX(target: Vector2): Boolean
+  equalX(target: uii_Vector2): Boolean
   equalX(target: number): Boolean
   equalX(num: { x: number, y: number }): Boolean
 
@@ -273,7 +278,7 @@ class Vector2 {
     }
   }
 
-  equalY(target: Vector2): Boolean
+  equalY(target: uii_Vector2): Boolean
   equalY(target: number): Boolean
   equalY(num: { x: number, y: number }): Boolean
 
@@ -290,7 +295,7 @@ class Vector2 {
 
 
   ///   Distance   ///
-  dis(target: Vector2): number
+  dis(target: uii_Vector2): number
   dis(target: number): number
   dis(num: { x: number, y: number }): number
 
@@ -308,7 +313,7 @@ class Vector2 {
     }
   }
 
-  disX(target: Vector2): number
+  disX(target: uii_Vector2): number
   disX(target: number): number
   disX(num: { x: number, y: number }): number
 
@@ -323,7 +328,7 @@ class Vector2 {
     }
   }
 
-  disY(target: Vector2): number
+  disY(target: uii_Vector2): number
   disY(target: number): number
   disY(num: { x: number, y: number }): number
 
@@ -346,7 +351,7 @@ class Vector2 {
 
 
   ///   Move   ///
-  move(target: Vector2): void
+  move(target: uii_Vector2): void
   move(target: number): void
   move(num: { x: number, y: number }): void
 
@@ -360,7 +365,7 @@ class Vector2 {
     }
   }
 
-  moveX(target: Vector2): void
+  moveX(target: uii_Vector2): void
   moveX(target: number): void
   moveX(num: { x: number, y: number }): void
 
@@ -375,7 +380,7 @@ class Vector2 {
     }
   }
 
-  moveY(target: Vector2): void
+  moveY(target: uii_Vector2): void
   moveY(target: number): void
   moveY(num: { x: number, y: number }): void
 
@@ -404,4 +409,4 @@ const ceil = (target: number): number => {
   return Math.ceil(target * 1000) /1000
 }
 
-export { Vector2, ceil }
+export { uii_Vector2, ceil }
