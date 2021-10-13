@@ -59,7 +59,7 @@ export default abstract class Prefab {
   ///   Render   ///
   render(): void {
     if (this.present()) {
-      graphic.beginFill(this.color(), )
+      graphic.beginFill(this.color(), this.transparency() )
 
       graphic.drawRect(
         this.pos().x(),
