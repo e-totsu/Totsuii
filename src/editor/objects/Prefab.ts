@@ -26,7 +26,7 @@ export default abstract class Prefab {
       this._size = args[1];
   }
 
-  
+
   ///   Gets   ///
   id          (): string  { return this._id           }
   size        (): Vector2 { return this._size         }
@@ -50,13 +50,12 @@ export default abstract class Prefab {
   set_transparent (target: boolean): void { this._transparent  = target }
   set_disabled    (target: boolean): void { this._disabled     = target }
 
-  
+
   ///   Update   ///
   update(): void {
 
   }
 
-  
   ///   Render   ///
   render(): void {
     if (this.present()) {
