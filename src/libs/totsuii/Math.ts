@@ -9,24 +9,29 @@ class uii_Vector2 {
   constructor(x: number, y: number)
 
   constructor(...args: any[]) {
-    switch(args.length) {
-      case 1:
-        if ( args[0].x != null ) {
-          this._x = args[0].x
-          this._y = args[0].y
-        } else {
-          this._x = args[0].x()
-          this._y = args[0].y()
-        }
-      break
-      case 2:
-        this._x = args[0]
-        this._y = args[1]
-      break
-    }
+    console.log(args)
+    // switch(args.length) {
+    //   case 1:
+    //     if ( args[0].x != null ) {
+    //       this._x = args[0].x
+    //       this._y = args[0].y
+    //     } else {
+    //       this._x = args[0].x()
+    //       this._y = args[0].y()
+    //     }
+    //   break
+    //   case 2:
+    //     this._x = args[0]
+    //     this._y = args[1]
+    //   break
+    // }
   }
 
-  
+  // To String
+  toString(): string {
+    return `X: ${this.x()}, Y: ${this.y()}`
+  }
+
   ///   Sets   ///
   set(): void
   set(target: uii_Vector2): void
@@ -129,8 +134,8 @@ class uii_Vector2 {
 
     return this.y()
   }
-  
-  
+
+
   ///   Multiplies   ///
   mul(target: uii_Vector2): void
   mul(target: number): void
@@ -175,8 +180,8 @@ class uii_Vector2 {
       this.setY(this.y() * args[0])
     }
   }
-  
-  
+
+
   ///   Divides   ///
   dev(target: uii_Vector2): void
   dev(target: number): void
