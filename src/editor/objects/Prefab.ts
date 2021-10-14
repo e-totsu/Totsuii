@@ -4,7 +4,7 @@ import { Graphics } from 'pixi.js'
 
 const graphic = new Graphics()
 
-export default class uii_Prefab {
+export abstract class uii_Prefab {
   private _id          : string  = gen_id()
   private _size        : uii_Vector2 = new uii_Vector2()
   private _pos         : uii_Vector2 = new uii_Vector2()
@@ -17,7 +17,6 @@ export default class uii_Prefab {
 
   constructor()
   constructor(size?: uii_Vector2, position?: uii_Vector2)
-  constructor(size?: number, position?: number)
 
   constructor(...args: any[]) {
     if (args[0] != null)
