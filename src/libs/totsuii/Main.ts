@@ -1,4 +1,11 @@
-import { Vector2 } from '@/libs/totsuii/Math';
+import { uii_Vector2 } from '@/libs/totsuii/Math';
+
+
+
+///   Get DOOM   ///
+function uii_get     ( target: any ) { return document.querySelector    ( target ) }
+function uii_get_all ( target: any ) { return document.querySelectorAll ( target ) }
+
 
 
 ///   ID Generator   ///
@@ -8,7 +15,7 @@ const gen_id = (): string => {
 
 
 ///   Range Of Numbers   ///
-const range = (num: number, range: Vector2): number => {
+const range = (num: number, range: uii_Vector2): number => {
   if (num < range.x())
     return range.x()
 
@@ -18,4 +25,4 @@ const range = (num: number, range: Vector2): number => {
   return num;
 }
 
-export { gen_id, range }
+export { gen_id, range, uii_get, uii_get_all }
