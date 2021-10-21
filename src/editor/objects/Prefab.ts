@@ -23,10 +23,10 @@ export abstract class uii_Prefab {
       this._size = args[0];
 
     if (args[0] != null)
-      this._size = args[1];
+      this._pos = args[1];
   }
 
-  
+
   ///   Gets   ///
   id          (): string  { return this._id           }
   size        (): uii_Vector2 { return this._size         }
@@ -50,13 +50,12 @@ export abstract class uii_Prefab {
   set_transparent (target: boolean): void { this._transparent  = target }
   set_disabled    (target: boolean): void { this._disabled     = target }
 
-  
+
   ///   Update   ///
   update(): void {
 
   }
 
-  
   ///   Render   ///
   render(): void {
     if (this.present()) {
