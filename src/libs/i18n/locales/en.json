@@ -1,0 +1,16 @@
+{
+  "menu": {
+    "this": "Menu",
+    "File": "File",
+    "Edit": "Edit",
+    "Layer": "Layer",
+    "Window": "Window",
+    "Market": "Market",
+    "Help": "Help"
+  },
+  "ps": {
+    "Design": "Design",
+    "Prototype": "Prototype",
+    "Share": "Share"
+  }
+}

@@ -1,9 +1,13 @@
-import Vue from 'vue';
-import Vuetify from 'vuetify/lib/framework';
+import Vue from 'vue'
+import Vuetify from 'vuetify/lib/framework'
+import '@fortawesome/fontawesome-free/css/all.css'
 
-Vue.use(Vuetify);
+Vue.use(Vuetify)
 
 export default new Vuetify({
+    icons: {
+      iconfont: 'fa',
+    },
     theme: {
         dark: true,
         options: {
@@ -25,6 +29,7 @@ export default new Vuetify({
                 },
 
                 white: {
+                    lighten1: '#FFF',
                     base: '#707070',
                     darken1: '#404040',
                 },
@@ -39,4 +44,4 @@ export default new Vuetify({
             },
         },
     },
-});
+})
