@@ -71,11 +71,23 @@
       <Panel_switch />
     </v-banner>
 
-    <v-main>
+    <v-main class="d-flex row ma-0 pb-0" >
       <v-container
         fluid
+        class="pa-0 secondary"
+        style="width: 4rem"
       >
+      </v-container>
+
+      <v-container class="pa-0" fluid>
         <HelloWorld/>
+      </v-container>
+
+      <v-container
+          fluid
+          class="pa-0 secondary"
+          style="width: 30rem"
+      >
       </v-container>
     </v-main>
 
@@ -90,6 +102,8 @@
       style="
         font-size  : .6rem;
         font-weight: bold;
+
+        border-top: medium solid var(--v-primary-darken1);
       "
     >
       <span style="color: var(--v-white-lighten1)">Totsuii @ 2021</span>
@@ -110,7 +124,7 @@
           class="ml-5"
           style="color: var(--v-white-lighten1)"
         >
-            <v-icon size="x-small">fas fa-search</v-icon>
+          <v-icon size="x-small">fas fa-search</v-icon>
         </span>
       </div>
     </v-footer>
@@ -164,11 +178,18 @@ html, body {
 #app {
   background: var(--v-primary-darken1);
 
+  .v-banner .v-banner__wrapper,
+  .v-footer {
+    border-width: medium;
+    border-color: var(--v-primary-darken1) !important;
+  }
+
   .v-banner .v-banner__wrapper {
     padding: 0;
+  }
 
-    border-width: medium;
-    border-color: var(--v-primary-darken1);
+  .v-main__wrap {
+    display: flex;
   }
 }
 </style>

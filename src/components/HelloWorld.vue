@@ -1,8 +1,6 @@
 <template>
-  <div id="editor">
-    <div id="desk">
-      <canvas id="stage" />
-    </div>
+  <div id="desk">
+    <canvas id="stage" />
   </div>
 </template>
 
@@ -25,10 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
-#desk, #editor {
+#desk {
   width : 100%;
   height: 100%;
-
-  border: 1px dashed purple;
 }
 </style>
