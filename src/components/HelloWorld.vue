@@ -10,13 +10,13 @@ import { uii_get } from '@/libs/totsuii/Main';
 
 export default {
   data: () => ({
-    kot: null
+    editor: null
   }),
   methods: {
   },
 
   mounted() {
-    this.kot = new uii_Stage(uii_get('#stage'))
+    this.editor = new uii_Stage(uii_get('#stage'))
   },
 }
 
