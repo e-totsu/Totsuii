@@ -38,16 +38,28 @@ export class uii_Stage {
       worldWidth  : 1000,
       worldHeight : 1000,
 
+      passiveWheel: false,
+
       interaction: this._app.renderer.plugins.interaction
     })
 
     this._app.stage.addChild(this._viewport)
 
     this._viewport
-        .drag()
+        .drag({
+          factor: 1.25,
+        })
         .pinch()
-        .wheel()
-        .decelerate()
+        .wheel({
+          percent: 10,
+        })
+        .decelerate({
+          friction: 0,
+        })
+        .clampZoom({
+          minScale: .1,
+          maxScale: 2,
+        })
 
 
     ///   Setting Clock   ///
@@ -55,7 +67,7 @@ export class uii_Stage {
 
 
     ///   Loading objects   ///
-    this._render_queue.push(new uii_Object(new uii_Vector2(100, 400), new uii_Vector2(this._app.screen.width /2, this._app.screen.height /2)))
+    this._render_queue.push(new uii_Object(new uii_Vector2(640, 480), new uii_Vector2(this._app.screen.width /2, this._app.screen.height /2)))
 
     this._render_queue.forEach(obj => this._viewport.addChild(obj.graphic()))
   }
