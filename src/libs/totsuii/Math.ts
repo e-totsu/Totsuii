@@ -1,4 +1,4 @@
-///   uii_Vector2   ///
+///   Vector2   ///
 class uii_Vector2 {
   private _x: number = 0
   private _y: number = 0
@@ -35,7 +35,6 @@ class uii_Vector2 {
   set(): void
   set(target: uii_Vector2): void
   set(target: number): void
-  set(target: { x: number, y: number }): void
   set(x: number, y: number): void
 
   set(...args: any[]): void {
@@ -57,7 +56,6 @@ class uii_Vector2 {
 
   setX(): void
   setX(target: uii_Vector2): void
-  setX(target: { x: number, y: number }): void
   setX(x: number): void
 
   setX(...args: any[]): void {
@@ -67,9 +65,6 @@ class uii_Vector2 {
       break
       case 1:
         if (args[0].x != null) {
-          this._x = ceil(args[0].x)
-        } else
-        if (typeof args[0] != 'number') {
           this._x = ceil(args[0].x())
         } else {
           this._x = ceil(args[0])
@@ -80,7 +75,6 @@ class uii_Vector2 {
 
   setY(): void
   setY(target: uii_Vector2): void
-  setY(target: { x: number, y: number }): void
   setY(y: number): void
 
   setY(...args: any[]): void {
@@ -90,9 +84,6 @@ class uii_Vector2 {
       break
       case 1:
         if (args[0].y != null) {
-          this._y = ceil(args[0].y)
-        } else
-        if (typeof args[0] != 'number') {
           this._y = ceil(args[0].y())
         } else {
           this._y = ceil(args[0])
@@ -352,12 +343,12 @@ class uii_Vector2 {
   ///   Move   ///
   move(target: uii_Vector2): void
   move(target: number): void
-  move(num: { x: number, y: number }): void
+  move(x: number, y: number): void
 
   move(...args: any[]): void {
-    if (args[0].x != null) {
-      this.moveX(args[0].x)
-      this.moveY(args[0].y)
+    if (args[1]) {
+      this.moveX(args[0])
+      this.moveY(args[1])
     } else {
       this.moveX(args[0])
       this.moveY(args[0])
@@ -366,13 +357,9 @@ class uii_Vector2 {
 
   moveX(target: uii_Vector2): void
   moveX(target: number): void
-  moveX(num: { x: number, y: number }): void
 
   moveX(...args: any[]): void {
-    if (args[0].x != null) {
-      this.setX(this._x += args[0].x)
-    } else
-    if (typeof args[0] != 'number') {
+    if (typeof args[0] != "number") {
       this.setX(this._x += args[0].x())
     } else {
       this.setX(this._x += args[0])
@@ -381,13 +368,9 @@ class uii_Vector2 {
 
   moveY(target: uii_Vector2): void
   moveY(target: number): void
-  moveY(num: { x: number, y: number }): void
 
   moveY(...args: any[]): void {
     if (args[0].y != null) {
-      this.setY(this._y += args[0].y)
-    } else
-    if (typeof args[0] != 'number') {
       this.setY(this._y += args[0].y())
     } else {
       this.setY(this._y += args[0])
