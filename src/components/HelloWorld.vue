@@ -19,7 +19,6 @@ export default {
     this.editor = new uii_Stage(uii_get('#stage'))
   },
 }
-
 </script>
 
 <style lang="scss">

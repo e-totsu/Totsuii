@@ -10,16 +10,16 @@ enum ORIGIN { DEFAULT, CENTER }
 export abstract class uii_Prefab {
   private _graphic: Graphics = new Graphics()
 
-  private _id          : string      = gen_id()
-  private _size        : uii_Vector2 = new uii_Vector2()
-  private _pos         : uii_Vector2 = new uii_Vector2()
-  private _origin      : ORIGIN      = ORIGIN.CENTER
-  private _zIndex      : number      = 0
-  private _color       : uii_color   = new uii_color(0, 0, 0, 1)
-  private _present     : boolean     = true
-  private _visible     : boolean     = true
-  private _transparent : boolean     = false
-  private _disabled    : boolean     = false
+  private _id         : string      = gen_id()
+  private _size       : uii_Vector2 = new uii_Vector2()
+  private _pos        : uii_Vector2 = new uii_Vector2()
+  private _origin     : ORIGIN      = ORIGIN.CENTER
+  private _zIndex     : number      = 0
+  private _color      : uii_color   = new uii_color(0, 0, 0, 1)
+  private _present    : boolean     = true
+  private _visible    : boolean     = true
+  private _transparent: boolean     = false
+  private _disabled   : boolean     = false
 
   protected constructor(size?: uii_Vector2, position?: uii_Vector2) {
     if (size != null)
@@ -31,7 +31,7 @@ export abstract class uii_Prefab {
 
 
   ///   Gets   ///
-  origin      (): ORIGIN       { return this._origin      }
+  origin      (): ORIGIN      { return this._origin       }
 
   id          (): string      { return this._id           }
   size        (): uii_Vector2 { return this._size         }
