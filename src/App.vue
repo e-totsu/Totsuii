@@ -77,6 +77,7 @@
         class="pa-0 secondary"
         style="width: 4rem"
       >
+        <Supplies />
       </v-container>
 
       <v-container class="pa-0" fluid>
@@ -135,6 +136,7 @@
 import Vue from 'vue';
 import Menu from './components/app/menu.vue';
 import Panel_switch from './components/app/panel_switch.vue';
+import Supplies from './components/editor/supplies.vue';
 import HelloWorld from './components/HelloWorld.vue';
 
 
@@ -144,6 +146,7 @@ export default Vue.extend({
   components: {
     Panel_switch,
     Menu,
+    Supplies,
     HelloWorld,
   },
 
