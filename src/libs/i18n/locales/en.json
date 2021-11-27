@@ -1,16 +1,17 @@
 {
   "menu": {
-    "this": "Menu",
-    "File": "File",
-    "Edit": "Edit",
-    "Layer": "Layer",
-    "Window": "Window",
-    "Market": "Market",
-    "Help": "Help"
+    "menu": "Menu",
+    "file": "File",
+    "edit": "Edit",
+    "layer": "Layer",
+    "window": "Window",
+    "market": "Market",
+    "help": "Help"
   },
-  "ps": {
-    "Design": "Design",
-    "Prototype": "Prototype",
-    "Share": "Share"
-  }
+  "launcher": {
+    "load_last_pro": "Load last project"
+  },
+  "design": "Design",
+  "prototype": "Prototype",
+  "share": "Share"
 }

@@ -1,160 +1,56 @@
 <template>
   <v-app>
+    <!--    The App bar    -->
     <v-app-bar
       app
       flat
       color="primary"
     >
-      <v-card
-        class="
-          d-flex
-          justify-space-between
-          align-center
-        "
-        style="width: 100%"
-        color="transparent"
-        flat
-        tile
-      >
-        <Menu />
-        <span
-          style="
-            position: absolute;
-
-            left: 0;
-            right: 0;
-
-            text-align: center;
-          "
-        >{{ app_version }}</span>
-        <div
-          class="d-inline-flex align-center"
-        >
-          <v-btn
-            text
-            icon
-            class="mr-4"
-          >
-            <v-icon size="small">fas fa-play</v-icon>
-          </v-btn>
-          <v-text-field
-            v-model="desk_scale"
-            :value="desk_scale"
-            color="red"
-            :max-lenght="2"
-            hide-details
-            class="mr-4 darken-2"
-            style="
-              max-width: 2.6rem;
-            "
-            @blur="
-              desk_scale = desk_scale.length < 3 ?
-                parseInt(desk_scale) < 0 ?
-                  0
-                :
-                  parseInt(desk_scale) ?
-                    parseInt(desk_scale)
-                  :
-                    0
-              :
-               100
-            "
-          />
-        </div>
-      </v-card>
+      <the-bar :project_title="project.name"></the-bar>
     </v-app-bar>
 
-    <v-banner
-      app
-      color="secondary"
-    >
-      <Panel_switch />
-    </v-banner>
-
-    <v-main class="d-flex row ma-0 pb-0" >
-      <v-container
-        fluid
-        class="pa-0 secondary"
-        style="width: 4rem"
-      >
-        <Supplies />
-      </v-container>
-
-      <v-container class="pa-0" fluid>
-        <HelloWorld/>
-      </v-container>
-
-      <v-container
-          fluid
-          class="pa-0 secondary"
-          style="width: 30rem"
-      >
+    <!--    The App container    -->
+    <v-main class="py-0">
+      <v-container fluid>
+        <router-view></router-view>
       </v-container>
     </v-main>
 
+    <!--    The App footer    -->
     <v-footer
       app
       color="red"
-      class="
-        d-flex
-        justify-space-between
-        darken-2
-      "
-      style="
-        font-size  : .6rem;
-        font-weight: bold;
-
-        border-top: medium solid var(--v-primary-darken1);
-      "
     >
-      <span style="color: var(--v-white-lighten1)">Totsuii @ 2021</span>
-      <div >
-        <span
-          class="ml-5"
-          style="color: var(--v-white-lighten1)"
-        >
-          ENG
-        </span>
-        <span
-          class="ml-5"
-          style="color: var(--v-white-lighten1)"
-        >
-          DEV
-        </span>
-        <span
-          class="ml-5"
-          style="color: var(--v-white-lighten1)"
-        >
-          <v-icon size="x-small">fas fa-search</v-icon>
-        </span>
-      </div>
+      <the-footer
+        :app_title="app.name"
+        :app_mode="app.mode"
+        :app_language="app.lang"
+      ></the-footer>
     </v-footer>
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import Menu from './components/app/menu.vue';
-import Panel_switch from './components/app/panel_switch.vue';
-import Supplies from './components/editor/supplies.vue';
-import HelloWorld from './components/HelloWorld.vue';
+import The_bar from './components/app/The_bar.vue';
+import The_footer from './components/app/The_footer.vue';
 
-
-export default Vue.extend({
+export default {
   name: 'App',
-
   components: {
-    Panel_switch,
-    Menu,
-    Supplies,
-    HelloWorld,
+    TheBar: The_bar,
+    TheFooter: The_footer,
   },
-
   data: () => ({
-    app_version: 'Totsuii V0.0.1',
-    desk_scale: '100',
+    app: {
+      name: 'Totsuii',
+      mode: 'dev',
+      lang: 'ang',
+    },
+    project: {
+      name: ''
+    },
   }),
-});
+}
 </script>
 
 <style lang="scss">
@@ -176,23 +72,11 @@ html, body {
   .container {
     height: calc(100% - .8rem);
   }
-}
-
-#app {
-  background: var(--v-primary-darken1);
 
   .v-banner .v-banner__wrapper,
   .v-footer {
     border-width: medium;
     border-color: var(--v-primary-darken1) !important;
-  }
-
-  .v-banner .v-banner__wrapper {
-    padding: 0;
-  }
-
-  .v-main__wrap {
-    display: flex;
   }
 }
 </style>

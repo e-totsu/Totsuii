@@ -1,7 +1,7 @@
 <template>
-  <div id="desk">
+  <v-content id="desk">
     <canvas id="stage" />
-  </div>
+  </v-content>
 </template>
 
 <script>
@@ -10,20 +10,10 @@ import { uii_get } from '@/libs/totsuii/Main';
 
 export default {
   data: () => ({
-    editor: null
+    editor: uii_Stage,
   }),
-  methods: {
-  },
-
   mounted() {
     this.editor = new uii_Stage(uii_get('#stage'))
   },
 }
 </script>
-
-<style lang="scss">
-#desk {
-  width : 100%;
-  height: 100%;
-}
-</style>
