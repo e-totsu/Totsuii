@@ -2,12 +2,10 @@
   <v-list
     flat
     color="transparent"
-    style="padding: 0"
   >
     <v-list-item-group>
       <v-list-item-title>
         <v-btn-toggle
-          v-model="selected_option"
           tile
           group
           mandatory
@@ -35,7 +33,6 @@
 <script>
 export default {
   data: () => ({
-    selected_option: 0,
     menu_items: [
       'edit',
       'crop_square',
@@ -49,5 +46,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.v-item-group { flex-wrap: wrap }
+.v-item-group {
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
 </style>

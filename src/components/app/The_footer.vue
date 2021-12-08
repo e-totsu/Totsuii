@@ -7,12 +7,14 @@
       px-2
     "
     flat
+    tile
     width="100%"
     color="transparent"
   >
     <!--    Project name    -->
     <v-card
       flat
+      tile
       color="transparent"
       class="
         d-flex
@@ -25,6 +27,7 @@
     <!--    Right side    -->
     <v-card
       flat
+      tile
       color="transparent"
       class="
         d-flex

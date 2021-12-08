@@ -1,7 +1,18 @@
 <template>
-  <div>
-    <h5>{{ title }}</h5>
-    <section>
+  <div class="
+    d-flex
+    flex-column
+  ">
+    <h5 class="
+      white--text
+      text--lighten-1
+    ">
+      {{ title }}
+    </h5>
+    <section class="
+      white--text
+      text--lighten-1
+    ">
       {{ pattern }}
     </section>
   </div>

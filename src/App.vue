@@ -5,13 +5,14 @@
       app
       flat
       color="primary"
+      class="uii_card_border uii_bb"
     >
       <the-bar :project_title="project.name"></the-bar>
     </v-app-bar>
 
     <!--    The App container    -->
     <v-main class="py-0">
-      <v-container fluid>
+      <v-container class="px-0 py-0" fluid>
         <router-view></router-view>
       </v-container>
     </v-main>
@@ -20,6 +21,7 @@
     <v-footer
       app
       color="red"
+      class="uii_card_border uii_bt"
     >
       <the-footer
         :app_title="app.name"
@@ -65,18 +67,44 @@ html, body {
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: var(--v-white-darken1);
+    color: var(--v-white-base);
     font-weight: 300;
+
+    letter-spacing: .1rem;
   }
 
   .container {
-    height: calc(100% - .8rem);
+    height: 100%;
   }
 
-  .v-banner .v-banner__wrapper,
-  .v-footer {
-    border-width: medium;
+  #app .uii_card_border {
     border-color: var(--v-primary-darken1) !important;
+    border-style: solid;
+    border-width: .3rem;
+  }
+
+  #app .uii_bb {
+    border-top: unset !important;
+    border-left: unset !important;
+    border-right: unset !important;
+  }
+
+  #app .uii_bt {
+    border-bottom: unset !important;
+    border-left: unset !important;
+    border-right: unset !important;
+  }
+
+  #app .uii_bl {
+    border-top: unset !important;
+    border-bottom: unset !important;
+    border-right: unset !important;
+  }
+
+  #app .uii_br {
+    border-top: unset !important;
+    border-bottom: unset !important;
+    border-left: unset !important;
   }
 }
 </style>

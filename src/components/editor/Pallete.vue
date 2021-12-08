@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-flex flex-column">
     <v-expansion-panels
       v-for="(section, index) in sections"
       :key="index"
